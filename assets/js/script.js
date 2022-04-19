@@ -9,7 +9,13 @@ var span = document.getElementsByClassName("close")[0];
 
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
+  modal.classList.remove('hide')
   modal.style.display = "block";
+}
+
+// hides modal on page load
+window.onload = function() {
+  modal.classList.add('hide')
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -32,3 +38,5 @@ $(function(){
   });
   
 });
+
+

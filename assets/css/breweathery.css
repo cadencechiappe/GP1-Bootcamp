@@ -30,6 +30,11 @@ h1 {
   animation-duration: 0.4s
 }
 
+/* hides modal on page launch */
+.hide {
+  display: none
+}
+
 .close {
   position: relative;
   display: block;
