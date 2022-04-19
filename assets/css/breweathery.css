@@ -1,4 +1,4 @@
-h1{
+h1 {
   font-size: 60px;
 }
 
@@ -29,7 +29,8 @@ h1{
   animation-name: animatetop;
   animation-duration: 0.4s
 }
-.close{
+
+.close {
   position: relative;
   display: block;
   width: 100%;
@@ -50,6 +51,48 @@ h1{
 }
 
 body {
-  background-color : black;
+  background-color: black;
   color: white;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+/* Style page content */
+main {
+  margin-left: 200px;
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 100px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  main {
+    margin-left: 100px;
+  }
 }
