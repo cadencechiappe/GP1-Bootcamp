@@ -7,17 +7,14 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-var dateInput = document.getElementById('datepicker')
-var locationInput = document.getElementById('location-picker')
+var dateInput = document.getElementById('datepicker').value
+var locationInput = document.getElementById('location-picker').value
 
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
-var VALUE_HERE = locationInput.value
 
-const url = new URL(breweryURL);
-url.searchParams.set('BY_CITY', VALUE_HERE);
-history.pushState(null, '', url);
-console.log(url)
+
+
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
   modal.classList.remove('hide')
