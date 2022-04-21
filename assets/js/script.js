@@ -7,13 +7,28 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-var dateInput = document.getElementById('datepicker').value
-var locationInput = document.getElementById('location-picker').value
+
+
 
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 
+var submitBtn = document.getElementById("submit-btn");
 
+function newBreweryURL () {
+  var locationInput = document.getElementById('location-picker').value
+  var locationSearchParam = breweryURL.concat("by_postal=");
+  var locationURL =locationSearchParam.concat(locationInput) 
+  console.log(locationURL)
+}
+
+function newWeatherURL () {
+  var locationInputWeather = document.getElementById('location-picker').value
+  var locationURLWeather = weatherURL.concat(locationInputWeather)
+  console.log(locationURLWeather)
+  
+
+}
 
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
@@ -39,13 +54,13 @@ window.onclick = function(event) {
 }
 
 // Datepicker 
-$(function(){
-  $("#datepicker").datepicker({
-    minDate: 0,
-    maxDate: "+1M"
-  });
+//$(function(){
+ // $("#datepicker").datepicker({
+   // minDate: 0,
+   // maxDate: "+1M"
+  //});
   
-});
+//});
 
 
 
