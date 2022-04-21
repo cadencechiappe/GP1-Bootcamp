@@ -1,34 +1,104 @@
+h1 {
+  font-size: 60px;
+}
+
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: black;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  border: 1px solid white;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* hides modal on page launch */
+.hide {
+  display: none
+}
+
+.close {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: right;
+  font-size: 25px;
+}
+
+@keyframes animatetop {
+  from {
+    top: -500px;
+    opacity: 0
   }
-  
-  /* Modal Body */
-  .modal-body {padding: 2px 16px;}
-  
-  /* Modal Footer */
-  .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+
+  to {
+    top: 0;
+    opacity: 1
   }
-  
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+/* Style page content */
+main {
+  margin-left: 200px;
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 100px;
   }
-  
-  /* Add Animation */
-  @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+
+  .sidenav a {
+    font-size: 18px;
   }
+
+  main {
+    margin-left: 100px;
+  }
+}
+
