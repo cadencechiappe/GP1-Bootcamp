@@ -17,17 +17,25 @@ var submitBtn = document.getElementById("submit-btn");
 
 function newBreweryURL () {
   var locationInput = document.getElementById('location-picker').value
+  console.log(typeof locationInput)
+  if (isNaN('locationInput')) {
   var locationSearchParam = breweryURL.concat("by_postal=");
-  var locationURL =locationSearchParam.concat(locationInput) 
-  console.log(locationURL)
-}
+  var locationURL =locationSearchParam.concat(locationInput);
+  console.log(locationURL);
+  }
+  else {
+   var locationSearchParam = breweryURL.concat("by_city=");
+   var locationURL =locationSearchParam.concat(locationInput); 
+   console.log(locationURL); 
+  }
+};
+
+
 
 function newWeatherURL () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
   console.log(locationURLWeather)
-  
-
 }
 
 //When the User clicks on <btn>, opens the modal
@@ -52,6 +60,8 @@ window.onclick = function(event) {
       modal.style.display = "none";
   }
 }
+
+
 
 // Datepicker 
 //$(function(){
