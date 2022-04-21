@@ -1,3 +1,11 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+:root {
+  --darkgrey: rgb(44, 44, 48);
+}
+
 h1 {
   font-size: 60px;
 }
@@ -20,7 +28,7 @@ h1 {
 
 .modal-content {
   position: relative;
-  background-color: black;
+  background-color: var(--darkgrey);
   margin: auto;
   padding: 0;
   border: 1px solid white;
@@ -55,8 +63,17 @@ h1 {
   }
 }
 
+header {
+	padding: 20px;
+}
+
+#myBtn {
+	float: right;
+	text-align: center;
+}
+
 body {
-  background-color: black;
+  background-color: var(--darkgrey);
   color: white;
 }
 
@@ -66,7 +83,7 @@ body {
   width: 200px;
   position: fixed;
   left: 0;
-  background-color: #111;
+  background-color: rgb(94, 139, 153);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -101,4 +118,3 @@ main {
     margin-left: 100px;
   }
 }
-
