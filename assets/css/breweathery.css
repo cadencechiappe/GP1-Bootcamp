@@ -4,6 +4,9 @@
 
 :root {
   --darkgrey: rgb(44, 44, 48);
+  --lightteal: rgb(94, 139, 153);
+  --lightestteal: rgb(155, 196, 209);
+  --lightgrey: rgb(86, 93, 99);
 }
 
 h1 {
@@ -64,12 +67,25 @@ h1 {
 }
 
 header {
+  margin-bottom: 30px;
 	padding: 20px;
 }
 
+.athe {
+  color: var(--lightteal);
+}
+
 #myBtn {
-	float: right;
-	text-align: center;
+  float: right;
+  text-align: center;
+  background-color: var(--lightteal);
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+#myBtn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
 }
 
 body {
@@ -81,7 +97,7 @@ body {
 .sidenav {
   height: 100%;
   width: 200px;
-  position: fixed;
+  position: absolute;
   left: 0;
   background-color: rgb(94, 139, 153);
   overflow-x: hidden;
@@ -101,6 +117,13 @@ body {
 main {
   margin-left: 200px;
   padding: 0px 10px;
+}
+
+.front-page-img {
+  display: flex;
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
