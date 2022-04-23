@@ -6,7 +6,7 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
+var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
 
@@ -14,11 +14,11 @@ var breweryInfo = document.getElementById('brewInfo')
 
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
-
 var submitBtn = document.getElementById("submit-btn");
 
 //retrieves user input and attaches it to url as a query string
 function breweryQueryString () {
+  instructions.style.display = "none"
   modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
   console.log(typeof locationInput)
@@ -41,15 +41,15 @@ function breweryQueryString () {
     var breweryDataName = document.createElement('p')
     var breweryDataPhone = document.createElement('p')
     var breweryDataStreet = document.createElement('p')
-    var breweryDataWebsite = document.createElement('p')
+    var breweryDataWebsite = document.createElement('a')
     breweryDataName.textContent = data[i].name
     breweryDataPhone.textContent = data[i].phone
     breweryDataStreet.textContent = data[i].street
-    breweryDataWebsite.textContent = data[i].website_URL
+    breweryDataWebsite.textContent = data[i].website_url
     breweryContainer.append(breweryDataName)
-    breweryDataName.append(breweryDataPhone)
-    breweryDataPhone.append(breweryDataStreet)
-    breweryDataStreet.append(breweryDataWebsite)
+    breweryContainer.append(breweryDataPhone)
+    breweryContainer.append(breweryDataStreet)
+    breweryContainer.append(breweryDataWebsite)
 
   }
   })
