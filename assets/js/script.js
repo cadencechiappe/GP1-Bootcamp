@@ -10,7 +10,7 @@ var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
 
-
+var weatheryContainer = document.getElementById('weatherContainer')
 
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
@@ -67,9 +67,31 @@ function breweryQueryString () {
 function weatherQueryString () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
-  console.log(locationURLWeather); 
-}
-
+  console.log(locationURLWeather)
+fetch(locationURLWeather)
+.then(res => res.json())
+.then(function (data){
+  var nextDays = data.next_days
+  console.log(data)
+  for (var i = 0; i < nextDays.length; i++){
+    var weatherDay = document.createElement('a')
+    var weatherComment = document.createElement('a')
+    var weatherMaxTemp = document.createElement('a')
+    var weatherMinTemp = document.createElement('a')
+    var weatherIcon = document.createElement('a')
+    weatherDay.textContent = nextDays[i].day
+    weatherComment.textContent = nextDays[i].comment
+    weatherMaxTemp.textContent = nextDays[i].max_temp.f
+    weatherMinTemp.textContent = nextDays[i].min_temp.f
+    weatherIcon.textContent = nextDays[i].iconURL
+    weatheryContainer.append(weatherDay)
+    weatherDay.append(weatherComment)
+    weatherComment.append(weatherMaxTemp)
+    weatherMaxTemp.append(weatherMinTemp)
+    weatherMinTemp.append(weatherIcon)
+  }
+})
+};
 
 
 //When the User clicks on <btn>, opens the modal
