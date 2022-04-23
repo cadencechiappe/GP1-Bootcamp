@@ -84,6 +84,8 @@ h2 {
   width: 100%;
   text-align: right;
   font-size: 25px;
+  left: -15px;
+  top: 10px;
 }
 
 header {
@@ -111,6 +113,12 @@ header {
 body {
   background-color: var(--darkgrey);
   color: white;
+}
+
+#instructions {
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
 }
 
 /* The sidebar menu */
