@@ -37,7 +37,11 @@ function breweryQueryString () {
   return response.json();
   })
   .then(function (data) {
-  for (var i = 0; i < data.length; i++) {
+  for (var i = 0; i < data.length; i++) { 
+    var breweryDataNameDiv = document.createElement('div')
+    var breweryDataPhoneDiv = document.createElement('div')
+    var breweryDataStreetDiv = document.createElement('div')
+    var breweryDataWebsiteDiv = document.createElement('div')
     var breweryDataName = document.createElement('p')
     var breweryDataPhone = document.createElement('p')
     var breweryDataStreet = document.createElement('p')
@@ -46,11 +50,14 @@ function breweryQueryString () {
     breweryDataPhone.textContent = data[i].phone
     breweryDataStreet.textContent = data[i].street
     breweryDataWebsite.textContent = data[i].website_url
-    breweryContainer.append(breweryDataName)
-    breweryContainer.append(breweryDataPhone)
-    breweryContainer.append(breweryDataStreet)
-    breweryContainer.append(breweryDataWebsite)
-
+    breweryContainer.append(breweryDataNameDiv)
+    breweryContainer.append(breweryDataPhoneDiv)
+    breweryContainer.append(breweryDataStreetDiv)
+    breweryContainer.append(breweryDataWebsiteDiv)
+    breweryDataNameDiv.append(breweryDataName)
+    breweryDataPhoneDiv.append(breweryDataPhone)
+    breweryDataStreetDiv.append(breweryDataStreet)
+    breweryDataWebsiteDiv.append(breweryDataWebsite)
   }
   })
 };
