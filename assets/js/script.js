@@ -17,6 +17,7 @@ var submitBtn = document.getElementById("submit-btn");
 
 //retrieves user input and attaches it to url as a query string
 function breweryQueryString () {
+  modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
   console.log(typeof locationInput)
   if (!isNaN(locationInput)) {
@@ -29,6 +30,9 @@ function breweryQueryString () {
    var locationURL =locationSearchParam.concat(locationInput); 
    console.log(locationURL); 
   }
+  fetch(locationURL)
+  .then(res => res.json())
+  .then(data => console.log(data))
 };
 
 
@@ -36,8 +40,10 @@ function breweryQueryString () {
 function weatherQueryString () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
-  console.log(locationURLWeather)
+  console.log(locationURLWeather); 
 }
+
+
 
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
