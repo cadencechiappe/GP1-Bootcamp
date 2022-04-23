@@ -40,8 +40,7 @@ function breweryQueryString () {
 function weatherQueryString () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
-  console.log(locationURLWeather);
-  
+  console.log(locationURLWeather); 
 }
 
 
