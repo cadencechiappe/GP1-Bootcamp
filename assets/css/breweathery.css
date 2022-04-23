@@ -13,6 +13,10 @@ h1 {
   font-size: 60px;
 }
 
+.modal {
+  margin: 20px;
+}
+
 .modal-header {
   padding: 2px 16px;
   background-color: #5cb85c;
@@ -20,7 +24,7 @@ h1 {
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 20px;
 }
 
 .modal-footer {
@@ -34,11 +38,23 @@ h1 {
   background-color: var(--darkgrey);
   margin: auto;
   padding: 0;
-  border: 1px solid white;
+  border: 5px var(--lightgrey);
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+.submit-btn {
+  text-align: center;
+  background-color: var(--lightteal);
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+.submit-btn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
 }
 
 /* hides modal on page launch */
@@ -52,18 +68,6 @@ h1 {
   width: 100%;
   text-align: right;
   font-size: 25px;
-}
-
-@keyframes animatetop {
-  from {
-    top: -500px;
-    opacity: 0
-  }
-
-  to {
-    top: 0;
-    opacity: 1
-  }
 }
 
 header {
@@ -124,6 +128,18 @@ main {
   width: 100%;
   object-fit: cover;
   height: 400px;
+}
+
+@keyframes animatetop {
+  from {
+    top: -500px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

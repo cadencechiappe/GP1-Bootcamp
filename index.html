@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Breweathery</title>
+  <title>BREWeathery</title>
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/breweathery.css" />
   <!-- jQuery and jQuery UI library -->
@@ -20,14 +20,15 @@
 
 <body>
   <div class="sidenav">
-    <a>SideBar goes here</a>
-    <a>Day 1</a>
-    <a>Day 2</a>
-    <a>Day 3</a>
-    <a>Day 4</a>
-    <a>Day 5</a>
-    <a>Day 6</a>
-    <a>Day 7</a>
+    <h2>Weather</h2>
+    <div class="weather-box" id="index0"></div>
+    <div class="weather-box" id="index1"></div>
+    <div class="weather-box" id="index2"></div>
+    <div class="weather-box" id="index3"></div>
+    <div class="weather-box" id="index4"></div>
+    <div class="weather-box" id="index5"></div>
+    <div class="weather-box" id="index6"></div>
+    <div class="weather-box" id="index7"></div>
   </div>
   
   <div id="myModal" class="modal">
@@ -46,9 +47,9 @@
     <div class="jumbotron">
       <img src="./assets/images/istockphoto-1040303026-612x612.jpg" class="front-page-img" alt="Image of Drinks on Bar"/>
     </div>
-    <h2>
-      Where the information about breweries would go here
-    </h2>
+    <div id="brewInfo">
+      <span class="instructions">Press the Get Started button to look for your weather and breweries.</span>
+    </div>
   </main>
 </body>
 
