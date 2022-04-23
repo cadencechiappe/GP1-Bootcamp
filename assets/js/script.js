@@ -7,6 +7,8 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var breweryContainer = document.getElementById('brewContainer')
+var breweryInfo = document.getElementById('brewInfo')
 
 
 
@@ -31,8 +33,26 @@ function breweryQueryString () {
    console.log(locationURL); 
   }
   fetch(locationURL)
-  .then(res => res.json())
-  .then(data => console.log(data))
+  .then(function (response){
+  return response.json();
+  })
+  .then(function (data) {
+  for (var i = 0; i < data.length; i++) {
+    var breweryDataName = document.createElement('p')
+    var breweryDataPhone = document.createElement('p')
+    var breweryDataStreet = document.createElement('p')
+    var breweryDataWebsite = document.createElement('p')
+    breweryDataName.textContent = data[i].name
+    breweryDataPhone.textContent = data[i].phone
+    breweryDataStreet.textContent = data[i].street
+    breweryDataWebsite.textContent = data[i].website_URL
+    breweryContainer.append(breweryDataName)
+    breweryDataName.append(breweryDataPhone)
+    breweryDataPhone.append(breweryDataStreet)
+    breweryDataStreet.append(breweryDataWebsite)
+
+  }
+  })
 };
 
 
