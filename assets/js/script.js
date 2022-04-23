@@ -16,7 +16,7 @@ var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 
 //retrieves user input and attaches it to url as a query string
-function newBreweryURL () {
+function breweryQueryString () {
   var locationInput = document.getElementById('location-picker').value
   console.log(typeof locationInput)
   if (!isNaN(locationInput)) {
@@ -33,7 +33,7 @@ function newBreweryURL () {
 
 
 //retrieves user input and attaches it to url as a query string
-function newWeatherURL () {
+function weatherQueryString () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
   console.log(locationURLWeather)
