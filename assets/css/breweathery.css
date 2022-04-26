@@ -114,6 +114,7 @@ body {
   background-color: var(--darkgrey);
   color: var(--lightestteal);
   font-size: 20px;
+  line-height: 1.5;
 }
 
 #instructions {
@@ -139,12 +140,22 @@ body {
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidenav p {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 16px;
-  color: white;
+  color: var(--darkgrey);
   display: block;
+}
+
+.weather-box {
+  color: var(--darkgrey);
+  font-size: 16px;
+}
+
+.weather-day p {
+  color: white;
+  font-size: 18px;
 }
 
 /* Style page content */
