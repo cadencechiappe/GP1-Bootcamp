@@ -41,9 +41,7 @@ function invalidInput () {
   } else {
     breweryQueryString(); 
     // weatherQueryString();
-  }
-
-}
+  }}
 
 //retrieves user input and attaches it to url as a query string
 function breweryQueryString () {
@@ -114,33 +112,39 @@ fetch(locationURLWeather)
   var nextDays = data.next_days
   console.log(data)
   for (var i = 0; i < nextDays.length; i++){
-    var weatherDay = document.createElement('a')
-    var weatherComment = document.createElement('a')
-    var weatherMaxTemp = document.createElement('a')
-    var weatherMinTemp = document.createElement('a')
-    var weatherIcon = document.createElement('a')
+    var weatherDay = document.createElement('p')
+    var weatherComment = document.createElement('p')
+    var weatherMaxTemp = document.createElement('p')
+    var weatherMinTemp = document.createElement('p')
+    var weatherIcon = document.createElement('img')
+    var hightemp = document.createElement('p')
+    var lowtemp = document.createElement('p')
+
     weatherDay.textContent = nextDays[i].day
+    weatherDay.classList.add("weather-day");
     weatherComment.textContent = nextDays[i].comment
+    weatherComment.classList.add("weather-comment");
+
     weatherMaxTemp.textContent = nextDays[i].max_temp.f
+    hightemp.textContent = "High: " + weatherMaxTemp.textContent + "° F";
+    hightemp.classList.add("weather-max-temp");
+
     weatherMinTemp.textContent = nextDays[i].min_temp.f
+    lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
+    lowtemp.classList.add("weather-min-temp");
+
     weatherIcon.textContent = nextDays[i].iconURL
+    weatherIcon.classList.add("weather-icon");
+
     weatheryContainer.append(weatherDay)
-    weatherDay.append(weatherComment)
-    weatherComment.append(weatherMaxTemp)
-    weatherMaxTemp.append(weatherMinTemp)
-    weatherMinTemp.append(weatherIcon)
+    weatheryContainer.append(weatherComment)
+    weatheryContainer.append(hightemp)
+    weatheryContainer.append(lowtemp)
+    weatheryContainer.append(weatherIcon)
+
   }
 })
 };
-
-
-
-
-
-
-
-
-
 
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
@@ -165,17 +169,13 @@ window.onclick = function(event) {
   }
 }
 
-
+localStorage.setItem('https://code.jquery.com/jquery-1.12.4.js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
 
 // Datepicker 
-//$(function(){
- // $("#datepicker").datepicker({
-   // minDate: 0,
-   // maxDate: "+1M"
-  //});
+// $(function(){
+//  $("#datepicker").datepicker({
+//    minDate: 0,
+//    maxDate: "+1M"
+//   });
   
-//});
-
-
-
-
+// });

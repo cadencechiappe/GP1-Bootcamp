@@ -90,7 +90,7 @@ h2 {
 
 header {
   margin-bottom: 30px;
-	padding: 20px;
+  padding: 20px;
 }
 
 .athe {
@@ -112,7 +112,9 @@ header {
 
 body {
   background-color: var(--darkgrey);
-  color: white;
+  color: var(--lightestteal);
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 #instructions {
@@ -121,30 +123,44 @@ body {
   padding: 10px;
 }
 
+#brewContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
 /* The sidebar menu */
 .sidenav {
-  height: 100%;
+  height: 300%;
   width: 200px;
   position: absolute;
-  left: 0;
   background-color: rgb(94, 139, 153);
   overflow-x: hidden;
   padding-top: 20px;
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidenav p {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
-  color: white;
+  font-size: 16px;
+  color: var(--darkgrey);
   display: block;
+}
+
+.weather-box {
+  color: var(--darkgrey);
+  font-size: 16px;
+}
+
+.weather-day p {
+  color: white;
+  font-size: 18px;
 }
 
 /* Style page content */
 main {
   margin-left: 200px;
-  padding: 0px 10px;
 }
 
 .front-page-img {
@@ -167,21 +183,38 @@ main {
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 450px) {
   .sidenav {
+    position: relative;
     padding-top: 15px;
-    width: 100px;
+    width: 100%;
+    height: 100px;
   }
 
   .sidenav a {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   main {
-    margin-left: 100px;
+    margin-left: 0px;
   }
-}
 
-.dataStyling {
-  color: blue
+  .header-cont {
+    width: 100%;
+    height: 100px;
+  }
+
+  #myBtn {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+  }
+
+  img {
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    height: 1000px;
+  }
+
 }
