@@ -113,6 +113,7 @@ header {
 body {
   background-color: var(--darkgrey);
   color: var(--lightestteal);
+  font-size: 20px;
 }
 
 #instructions {
@@ -132,9 +133,8 @@ body {
   height: 300%;
   width: 200px;
   position: absolute;
-  left: 0;
   background-color: rgb(94, 139, 153);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   padding-top: 20px;
 }
 
@@ -142,7 +142,7 @@ body {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 16px;
   color: white;
   display: block;
 }
@@ -150,7 +150,6 @@ body {
 /* Style page content */
 main {
   margin-left: 200px;
-  padding: 0px 10px;
 }
 
 .front-page-img {
@@ -173,17 +172,23 @@ main {
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 450px) {
   .sidenav {
     padding-top: 15px;
-    width: 100px;
+    width: 100%;
+    height: 50%
   }
 
   .sidenav a {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   main {
     margin-left: 100px;
+  }
+
+  body {
+    position: absolute;
+    top: 500px;
   }
 }
