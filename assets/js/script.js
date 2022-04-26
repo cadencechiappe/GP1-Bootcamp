@@ -74,21 +74,29 @@ fetch(locationURLWeather)
   var nextDays = data.next_days
   console.log(data)
   for (var i = 0; i < nextDays.length; i++){
-    var weatherDay = document.createElement('a')
-    var weatherComment = document.createElement('a')
-    var weatherMaxTemp = document.createElement('a')
-    var weatherMinTemp = document.createElement('a')
-    var weatherIcon = document.createElement('a')
+    var weatherDay = document.createElement('p')
+    var weatherComment = document.createElement('p')
+    var weatherMaxTemp = document.createElement('p')
+    var weatherMinTemp = document.createElement('p')
+    var weatherIcon = document.createElement('img')
     weatherDay.textContent = nextDays[i].day
+    weatherDay.classList.add("weather-day");
     weatherComment.textContent = nextDays[i].comment
+    weatherComment.classList.add("weather-comment");
     weatherMaxTemp.textContent = nextDays[i].max_temp.f
+    weatherMaxTemp.classList.add("weather-max-temp");
     weatherMinTemp.textContent = nextDays[i].min_temp.f
+    weatherMinTemp.classList.add("weather-min-temp");
     weatherIcon.textContent = nextDays[i].iconURL
+    weatherIcon.classList.add("weather-icon");
     weatheryContainer.append(weatherDay)
-    weatherDay.append(weatherComment)
-    weatherComment.append(weatherMaxTemp)
-    weatherMaxTemp.append(weatherMinTemp)
-    weatherMinTemp.append(weatherIcon)
+    weatheryContainer.append(weatherComment)
+    weatheryContainer.append("Max Temp: ")
+    weatheryContainer.append(weatherMaxTemp)
+    weatheryContainer.append("Min Temp: ")
+    weatheryContainer.append(weatherMinTemp)
+    weatheryContainer.append(weatherIcon)
+
   }
 })
 };
