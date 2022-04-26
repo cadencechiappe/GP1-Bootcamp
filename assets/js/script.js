@@ -40,7 +40,7 @@ function invalidInput () {
   // breweryContainer.append(invalidError)
   } else {
     breweryQueryString(); 
-    // weatherQueryString();
+    weatherQueryString();
   }}
 
 //retrieves user input and attaches it to url as a query string
@@ -65,37 +65,31 @@ function breweryQueryString () {
   })
   .then(function (data) {
   for (var i = 0; i < data.length; i++) { 
-    var breweryData = [ data[i].name, data[i].phone, data[i].street, data[i].website_url]
-    for (var j=0; j< breweryData.length; j++){
-      var dataText = document.createElement('p')
-      dataText.textContent = breweryData[j]
+    var breweryName = document.createElement('p')
+    breweryName.textContent = data[i].name 
+    breweryName.classList.add('breweryName')
 
-      breweryContainer.append(dataText)
-    }
-    //breweryData.textContent = data[i].name + ', ' + data[i].phone + ', ' + data[i].street + ', ' + data[i].website_url
-    //breweryContainer.append(breweryData)
-    //breweryData.classList.add('dataStyling')
-    
-    // var breweryDataNameDiv = document.createElement('div')
-    // var breweryDataPhoneDiv = document.createElement('div')
-    // var breweryDataStreetDiv = document.createElement('div')
-    // var breweryDataWebsiteDiv = document.createElement('div')
-    // var breweryDataName = document.createElement('p')
-    // var breweryDataPhone = document.createElement('p')
-    // var breweryDataStreet = document.createElement('p')
-    // var breweryDataWebsite = document.createElement('a')
-    // breweryDataName.textContent = data[i].name
-    // breweryDataPhone.textContent = data[i].phone
-    // breweryDataStreet.textContent = data[i].street
-    // breweryDataWebsite.textContent = data[i].website_url
-    // breweryContainer.append(breweryDataNameDiv)
-    // breweryContainer.append(breweryDataPhoneDiv)
-    // breweryContainer.append(breweryDataStreetDiv)
-    // breweryContainer.append(breweryDataWebsiteDiv)
-    // breweryDataNameDiv.append(breweryDataName)
-    // breweryDataPhoneDiv.append(breweryDataPhone)
-    // breweryDataStreetDiv.append(breweryDataStreet)
-    // breweryDataWebsiteDiv.append(breweryDataWebsite)
+    var breweryStreet = document.createElement('p')
+    breweryStreet.textContent = data[i].street 
+    breweryStreet.classList.add('breweryStreet')
+
+    var breweryPhone = document.createElement('p')
+    breweryPhone.textContent = data[i].phone
+    breweryPhone.classList.add('breweryPhone')
+
+    var breweryWebsite = document.createElement('a')
+    breweryWebsite.textContent = data[i].website_url 
+    breweryWebsite.classList.add('breweryWebsite')
+    breweryWebsite.href = data[i].website_url
+    breweryWebsite.setAttribute("target", "_blank")
+
+    breweryContainer.append(breweryName, breweryStreet, breweryPhone, breweryWebsite)
+    // var breweryData = [ data[i].name, data[i].phone, data[i].street, data[i].website_url]
+    // for (var j=0; j< breweryData.length; j++){
+    //   var dataText = document.createElement('p')
+    //   dataText.textContent = breweryData[j]
+    //   breweryContainer.append(dataText)
+    // } 
   }
   })
 };
