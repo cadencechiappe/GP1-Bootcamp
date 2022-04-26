@@ -69,21 +69,25 @@ function breweryQueryString () {
     breweryName.textContent = data[i].name 
     breweryName.classList.add('breweryName')
 
-    var breweryStreet = document.createElement('p')
+    var breweryDataUL = document.createElement('ul')
+
+    var breweryStreet = document.createElement('li')
     breweryStreet.textContent = data[i].street 
     breweryStreet.classList.add('breweryStreet')
 
-    var breweryPhone = document.createElement('p')
+    var breweryPhone = document.createElement('li')
     breweryPhone.textContent = data[i].phone
     breweryPhone.classList.add('breweryPhone')
 
-    var breweryWebsite = document.createElement('a')
+    var breweryWebsite = document.createElement('a', 'li')
     breweryWebsite.textContent = data[i].website_url 
     breweryWebsite.classList.add('breweryWebsite')
     breweryWebsite.href = data[i].website_url
     breweryWebsite.setAttribute("target", "_blank")
 
-    breweryContainer.append(breweryName, breweryStreet, breweryPhone, breweryWebsite)
+    breweryContainer.append(breweryName)
+    breweryName.append(breweryDataUL)
+    breweryDataUL.append(breweryStreet, breweryPhone, breweryWebsite)
     // var breweryData = [ data[i].name, data[i].phone, data[i].street, data[i].website_url]
     // for (var j=0; j< breweryData.length; j++){
     //   var dataText = document.createElement('p')
