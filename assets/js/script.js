@@ -82,6 +82,12 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
     breweryName.append(breweryDataUL)
     breweryDataUL.append(breweryStreet, breweryPhone, breweryWebsite)
   }
+  ; if (data.length === 0) { // checks to see if there are no breweries in the given area
+    var noBrewery = document.createElement('p')
+    var sadFace = '\u{1F622}'
+    noBrewery.textContent = "There are no breweries in this area! " + sadFace + " Please enter another location."
+    breweryContainer.append(noBrewery) // displays message on page
+  }
   })
 };
 
