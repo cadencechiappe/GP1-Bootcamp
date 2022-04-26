@@ -6,25 +6,17 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
 var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
-
 var weatheryContainer = document.getElementById('weatherContainer')
-
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
 var invalidChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
-// var containsInvalidChars = invalidChars.some(element => {
-//   if (locationInput.includes(element)) {
-//     return true;
-//   }
-
-//   return false;
-// });
 
 function invalidInput () {
   instructions.style.display = "none"
@@ -34,10 +26,10 @@ function invalidInput () {
   var emptyError = document.createElement('p')
   emptyError.textContent = "Please enter a location!"
   breweryContainer.append(emptyError)
-  // } else if (containsInvalidChars) {
-  //   var invalidError = document.createElement('p')
-  //   invalidError.textContent = "Invalid characters detected. Please enter your location again!"
-  // breweryContainer.append(invalidError)
+  } else if (invalidChars.indexOf(locationInput) !== -1) {
+    var invalidError = document.createElement('p')
+    invalidError.textContent = "Invalid characters detected. Please enter your location again!"
+    breweryContainer.append(invalidError)
   } else {
     breweryQueryString(); 
     weatherQueryString();
@@ -169,11 +161,3 @@ window.onclick = function(event) {
 
 localStorage.setItem('https://code.jquery.com/jquery-1.12.4.js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
 
-// Datepicker 
-// $(function(){
-//  $("#datepicker").datepicker({
-//    minDate: 0,
-//    maxDate: "+1M"
-//   });
-  
-// });
