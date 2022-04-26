@@ -79,22 +79,29 @@ fetch(locationURLWeather)
     var weatherMaxTemp = document.createElement('p')
     var weatherMinTemp = document.createElement('p')
     var weatherIcon = document.createElement('img')
+    var hightemp = document.createElement('p')
+    var lowtemp = document.createElement('p')
+
     weatherDay.textContent = nextDays[i].day
     weatherDay.classList.add("weather-day");
     weatherComment.textContent = nextDays[i].comment
     weatherComment.classList.add("weather-comment");
+
     weatherMaxTemp.textContent = nextDays[i].max_temp.f
-    weatherMaxTemp.classList.add("weather-max-temp");
+    hightemp.textContent = "High: " + weatherMaxTemp.textContent + "° F";
+    hightemp.classList.add("weather-max-temp");
+
     weatherMinTemp.textContent = nextDays[i].min_temp.f
-    weatherMinTemp.classList.add("weather-min-temp");
+    lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
+    lowtemp.classList.add("weather-min-temp");
+
     weatherIcon.textContent = nextDays[i].iconURL
     weatherIcon.classList.add("weather-icon");
+
     weatheryContainer.append(weatherDay)
     weatheryContainer.append(weatherComment)
-    weatheryContainer.append("Max Temp: ")
-    weatheryContainer.append(weatherMaxTemp)
-    weatheryContainer.append("Min Temp: ")
-    weatheryContainer.append(weatherMinTemp)
+    weatheryContainer.append(hightemp)
+    weatheryContainer.append(lowtemp)
     weatheryContainer.append(weatherIcon)
 
   }
