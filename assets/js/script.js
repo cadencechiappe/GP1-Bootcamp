@@ -7,6 +7,7 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+//setting global variables and grabbing HTML elements
 var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
@@ -15,48 +16,48 @@ var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
-var invalidChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
-
-function invalidInput () {
+// checks to see if input is bad before executing other functions
+function checkInvalidInput () {
   instructions.style.display = "none"
   modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
-  if (!locationInput) {
+  if (!locationInput) { // checks if there is no input
   var emptyError = document.createElement('p')
   emptyError.textContent = "Please enter a location!"
   breweryContainer.append(emptyError)
-  } else if (invalidChars.indexOf(locationInput) !== -1) {
-    var invalidError = document.createElement('p')
-    invalidError.textContent = "Invalid characters detected. Please enter your location again!"
-    breweryContainer.append(invalidError)
-  } else {
-    breweryQueryString(); 
-    weatherQueryString();
+  } else if (specialChars.indexOf(locationInput) !== -1) { // checks for the presence of invalid characters
+    var specialCharsError = document.createElement('p')
+    specialCharsError.textContent = "Invalid characters detected! Please enter your location again."
+    breweryContainer.append(specialCharsError)
+  } else { // executes fetch API functions
+    fetchBreweryData(); 
+    fetchWeatherData();
   }}
 
-//retrieves user input and attaches it to url as a query string
-function breweryQueryString () {
+// Brewery API function
+function fetchBreweryData () { //retrieves user input and attaches it to url as a query string
   instructions.style.display = "none"
   modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
   console.log(typeof locationInput)
-  if (!isNaN(locationInput)) {
-  var locationSearchParam = breweryURL.concat("by_postal=");
-  var locationURL =locationSearchParam.concat(locationInput);
+  if (!isNaN(locationInput)) { // checks if input is a postal code
+  var postalCodeParam = breweryURL.concat("by_postal=");
+  var locationURL =postalCodeParam.concat(locationInput);
   console.log(locationURL);
   }
-  else {
-   var locationSearchParam = breweryURL.concat("by_city=");
-   var locationURL =locationSearchParam.concat(locationInput); 
+  else { // checks if input is a city
+   var cityParam = breweryURL.concat("by_city=");
+   var locationURL = cityParam.concat(locationInput); 
    console.log(locationURL); 
   }
-  fetch(locationURL)
+  fetch(locationURL) // fetches data from API
   .then(function (response){
   return response.json();
   })
   .then(function (data) {
-  for (var i = 0; i < data.length; i++) { 
+  for (var i = 0; i < data.length; i++) { // displays data on the page
     var breweryName = document.createElement('p')
     breweryName.textContent = data[i].name 
     breweryName.classList.add('breweryName')
@@ -80,28 +81,22 @@ function breweryQueryString () {
     breweryContainer.append(breweryName)
     breweryName.append(breweryDataUL)
     breweryDataUL.append(breweryStreet, breweryPhone, breweryWebsite)
-    // var breweryData = [ data[i].name, data[i].phone, data[i].street, data[i].website_url]
-    // for (var j=0; j< breweryData.length; j++){
-    //   var dataText = document.createElement('p')
-    //   dataText.textContent = breweryData[j]
-    //   breweryContainer.append(dataText)
-    // } 
   }
   })
 };
 
 
-//retrieves user input and attaches it to url as a query string
-function weatherQueryString () {
+// weather API function
+function fetchWeatherData () { //retrieves user input and attaches it to url as a query string
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
   console.log(locationURLWeather)
-fetch(locationURLWeather)
+fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
   var nextDays = data.next_days
   console.log(data)
-  for (var i = 0; i < nextDays.length; i++){
+  for (var i = 0; i < nextDays.length; i++){ // displays data on the page
     var weatherDay = document.createElement('p')
     var weatherComment = document.createElement('p')
     var weatherMaxTemp = document.createElement('p')
