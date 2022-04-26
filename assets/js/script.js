@@ -17,11 +17,14 @@ var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+var newLocationBtn = document.getElementById("newLocationBtn")
 
 // checks to see if input is bad before executing other functions
 function checkInvalidInput () {
+  btn.style.display = "none"
   instructions.style.display = "none"
   modal.style.display = "none"
+  newLocationBtn.classList.remove('hide')
   var locationInput = document.getElementById('location-picker').value
   if (!locationInput) { // checks if there is no input
   var emptyError = document.createElement('p')
@@ -136,6 +139,10 @@ fetch(locationURLWeather) // fetches data from API
   }
 })
 };
+
+newLocationBtn.onclick=function(){
+  window.location.reload()
+}
 
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
