@@ -85,10 +85,10 @@ fetch(locationURLWeather)
     weatherMinTemp.textContent = nextDays[i].min_temp.f
     weatherIcon.textContent = nextDays[i].iconURL
     weatheryContainer.append(weatherDay)
-    weatherDay.append(weatherComment)
-    weatherComment.append(weatherMaxTemp)
-    weatherMaxTemp.append(weatherMinTemp)
-    weatherMinTemp.append(weatherIcon)
+    weatheryContainer.append(weatherComment)
+    weatheryContainer.append(weatherMaxTemp)
+    weatheryContainer.append(weatherMinTemp)
+    weatheryContainer.append(weatherIcon)
   }
 })
 };
