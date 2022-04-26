@@ -6,6 +6,7 @@
   --darkgrey: rgb(44, 44, 48);
   --lightteal: rgb(94, 139, 153);
   --lightestteal: rgb(155, 196, 209);
+  --darkteal: rgb(67, 100, 109);
   --lightgrey: rgb(86, 93, 99);
 }
 
@@ -13,27 +14,24 @@ h1 {
   font-size: 60px;
 }
 
+h2 {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  background-color: var(--darkteal);
+}
+
 .modal {
+  display: flex;
   margin: 20px;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: black;
-}
-
-.modal-body {
   padding: 20px;
 }
 
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: black;
-}
-
 .modal-content {
+  font-size: 20px;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
   position: relative;
   background-color: var(--darkgrey);
   margin: auto;
@@ -42,12 +40,30 @@ h1 {
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
+}
+
+.location-p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-container {
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: var(--lightteal);
+  margin: 10px;
   padding: 10px;
   color: var(--darkgrey);
 }
@@ -68,11 +84,13 @@ h1 {
   width: 100%;
   text-align: right;
   font-size: 25px;
+  left: -15px;
+  top: 10px;
 }
 
 header {
   margin-bottom: 30px;
-	padding: 20px;
+  padding: 20px;
 }
 
 .athe {
@@ -94,12 +112,24 @@ header {
 
 body {
   background-color: var(--darkgrey);
-  color: white;
+  color: var(--lightestteal);
+}
+
+#instructions {
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+
+#brewContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
 }
 
 /* The sidebar menu */
 .sidenav {
-  height: 100%;
+  height: 300%;
   width: 200px;
   position: absolute;
   left: 0;

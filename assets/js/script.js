@@ -6,17 +6,19 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var instructions = document.getElementById("instructions")
+var breweryContainer = document.getElementById('brewContainer')
+var breweryInfo = document.getElementById('brewInfo')
 
-
-
+var weatheryContainer = document.getElementById('weatherContainer')
 
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
 var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
-
 var submitBtn = document.getElementById("submit-btn");
 
 //retrieves user input and attaches it to url as a query string
 function breweryQueryString () {
+  instructions.style.display = "none"
   modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
   console.log(typeof locationInput)
@@ -31,8 +33,33 @@ function breweryQueryString () {
    console.log(locationURL); 
   }
   fetch(locationURL)
-  .then(res => res.json())
-  .then(data => console.log(data))
+  .then(function (response){
+  return response.json();
+  })
+  .then(function (data) {
+  for (var i = 0; i < data.length; i++) { 
+    var breweryDataNameDiv = document.createElement('div')
+    var breweryDataPhoneDiv = document.createElement('div')
+    var breweryDataStreetDiv = document.createElement('div')
+    var breweryDataWebsiteDiv = document.createElement('div')
+    var breweryDataName = document.createElement('p')
+    var breweryDataPhone = document.createElement('p')
+    var breweryDataStreet = document.createElement('p')
+    var breweryDataWebsite = document.createElement('a')
+    breweryDataName.textContent = data[i].name
+    breweryDataPhone.textContent = data[i].phone
+    breweryDataStreet.textContent = data[i].street
+    breweryDataWebsite.textContent = data[i].website_url
+    breweryContainer.append(breweryDataNameDiv)
+    breweryContainer.append(breweryDataPhoneDiv)
+    breweryContainer.append(breweryDataStreetDiv)
+    breweryContainer.append(breweryDataWebsiteDiv)
+    breweryDataNameDiv.append(breweryDataName)
+    breweryDataPhoneDiv.append(breweryDataPhone)
+    breweryDataStreetDiv.append(breweryDataStreet)
+    breweryDataWebsiteDiv.append(breweryDataWebsite)
+  }
+  })
 };
 
 
@@ -40,9 +67,31 @@ function breweryQueryString () {
 function weatherQueryString () {
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
-  console.log(locationURLWeather); 
-}
-
+  console.log(locationURLWeather)
+fetch(locationURLWeather)
+.then(res => res.json())
+.then(function (data){
+  var nextDays = data.next_days
+  console.log(data)
+  for (var i = 0; i < nextDays.length; i++){
+    var weatherDay = document.createElement('a')
+    var weatherComment = document.createElement('a')
+    var weatherMaxTemp = document.createElement('a')
+    var weatherMinTemp = document.createElement('a')
+    var weatherIcon = document.createElement('a')
+    weatherDay.textContent = nextDays[i].day
+    weatherComment.textContent = nextDays[i].comment
+    weatherMaxTemp.textContent = nextDays[i].max_temp.f
+    weatherMinTemp.textContent = nextDays[i].min_temp.f
+    weatherIcon.textContent = nextDays[i].iconURL
+    weatheryContainer.append(weatherDay)
+    weatherDay.append(weatherComment)
+    weatherComment.append(weatherMaxTemp)
+    weatherMaxTemp.append(weatherMinTemp)
+    weatherMinTemp.append(weatherIcon)
+  }
+})
+};
 
 
 //When the User clicks on <btn>, opens the modal
