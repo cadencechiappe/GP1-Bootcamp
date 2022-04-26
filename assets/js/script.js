@@ -101,7 +101,6 @@ fetch(locationURLWeather)
 })
 };
 
-
 //When the User clicks on <btn>, opens the modal
 btn.onclick = function() {
   modal.classList.remove('hide')
