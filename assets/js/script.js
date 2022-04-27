@@ -127,7 +127,7 @@ fetch(locationURLWeather) // fetches data from API
     lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
     lowtemp.classList.add("weather-min-temp");
 
-    weatherIcon.textContent = nextDays[i].iconURL
+    weatherIcon.setAttribute("src" , nextDays[i].iconURL)
     weatherIcon.classList.add("weather-icon");
 
     weatheryContainer.append(weatherDay)

@@ -21,6 +21,7 @@ h2 {
   background-color: var(--darkteal);
 }
 
+/* styling for modal */
 .modal {
   display: flex;
   margin: 20px;
@@ -57,6 +58,7 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
+/* styling for modal submit button */
 .submit-btn {
   display: flex;
   justify-content: center;
@@ -88,6 +90,7 @@ h2 {
   top: 10px;
 }
 
+/* styling for header */
 header {
   margin-bottom: 30px;
   padding: 20px;
@@ -97,6 +100,7 @@ header {
   color: var(--lightteal);
 }
 
+/* styling for get started button */
 #myBtn {
   float: right;
   text-align: center;
@@ -110,6 +114,21 @@ header {
   color: var(--lightgrey);
 }
 
+/* styling for new location button */
+#newLocationBtn {
+  float: right;
+  text-align: center;
+  background-color: var(--lightteal);
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+#newLocationBtn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
+}
+
+/* generic styling for main body */
 body {
   background-color: var(--darkgrey);
   color: var(--lightestteal);
@@ -117,12 +136,14 @@ body {
   line-height: 1.5;
 }
 
+/* styling for instructions that will be replaced by dynamic brewery HTML */
 #instructions {
   font-size: 20px;
   margin: 20px;
   padding: 10px;
 }
 
+/* general styling for dynamic brewery HTML container */
 #brewContainer {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -131,12 +152,13 @@ body {
 
 /* The sidebar menu */
 .sidenav {
-  height: 300%;
-  width: 200px;
+  height: 250%;
+  width: 250px;
   position: absolute;
   background-color: rgb(94, 139, 153);
   overflow-x: hidden;
   padding-top: 20px;
+  line-height: 1.5;
 }
 
 /* The navigation menu links */
@@ -148,19 +170,26 @@ body {
   display: block;
 }
 
+.weather-day {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .weather-box {
   color: var(--darkgrey);
   font-size: 16px;
 }
 
-.weather-day p {
-  color: white;
-  font-size: 18px;
+/* styling for weather icon */
+.weather-icon {
+  position: relative;
+  left: 150px;
+  top: -60px;
 }
 
-/* Style page content */
+/* Styling for page content */
 main {
-  margin-left: 200px;
+  margin-left: 250px;
 }
 
 .front-page-img {
@@ -168,6 +197,25 @@ main {
   width: 100%;
   object-fit: cover;
   height: 400px;
+}
+
+/* Styling for dynamic brewery HTML */
+ul {
+  list-style: none;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.breweryName {
+  color: var(--lightestteal);
+  font-size: 22px;
+  font-weight: bold;
+}
+.breweryStreet , .breweryPhone , .breweryWebsite {
+  color: var(--lightteal);
+  font-size: 18px;
+  margin-left: 15px;
+  font-weight: normal;
 }
 
 @keyframes animatetop {
@@ -182,7 +230,7 @@ main {
   }
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+/* On smaller screens, where height is less than 450px, change the style of the sidebar to a semi jumbotron and alter main body to below */
 @media screen and (max-width: 450px) {
   .sidenav {
     position: relative;
@@ -210,6 +258,12 @@ main {
     top: 100px;
   }
 
+  #newLocationBtn {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+  }
+
   img {
     position: relative;
     width: 100%;
@@ -217,19 +271,4 @@ main {
     height: 1000px;
   }
 
-}
-
-.breweryName {
-  color: white;
-  text-align: center;
-}
-.breweryStreet{
-  color:white
-}
-.breweryPhone{
-  color: white
-}
-
-.breweryWebsite{
-  color: white
 }
