@@ -19,6 +19,11 @@ var locationInput = document.getElementById('location-picker').value
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
 
+// on page load retrieve the location from local storage
+// and do something with that location
+// if there is something in localstorage then call the functions for breweries and weather
+localStorage.getItem ('location-picker')
+
 // checks to see if input is bad before executing other functions
 function checkInvalidInput () {
   btn.style.display = "none"
@@ -100,6 +105,7 @@ function fetchWeatherData () { //retrieves user input and attaches it to url as 
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
   console.log(locationURLWeather)
+  window.localStorage.setItem('location', locationInputWeather)
 fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
@@ -167,5 +173,15 @@ window.onclick = function(event) {
   }
 }
 
-localStorage.setItem('https://code.jquery.com/jquery-1.12.4.js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js');
 
+
+// const fetchWithCache = async (Weather, time)=>{
+//  const now = new Date().getTime()
+//  if(!cache[cityName]  || cache[cityName].cacheTimer < now){ 
+//    cache[cityName] = fetchWeatherInfo(cityName, zipcode)
+//    cache[cityName].cacheTimer = getCacheTimer(time)
+ 
+//   }
+
+//  return cache[cityName]
+//  }
