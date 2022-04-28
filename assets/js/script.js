@@ -19,6 +19,7 @@ var locationInput = document.getElementById('location-picker').value
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
 var apiKey = "126e4065d97fedad97742cdb5c363ca9"
+localStorage.getItem ('location-picker')
 
 // checks to see if input is bad before executing other functions
 function checkInvalidInput () {
@@ -100,7 +101,7 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
 function fetchWeatherData () { //retrieves user input and attaches it to url as a query string
   var locationInputWeather = document.getElementById('location-picker').value 
   var locationURLWeather = weatherURL.concat(locationInputWeather) + "&Appid=" + apiKey + "&units=imperial"
-  console.log(locationURLWeather)
+  window.localStorage.setItem('location', locationInputWeather)
 fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
