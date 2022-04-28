@@ -105,6 +105,7 @@ fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
   var forecast = data.main
+  var icon = data.weather[0].icon
   console.log(data)
     var weatherDate = document.createElement('p')
     var weatherCurrentTemp = document.createElement('p')
@@ -113,7 +114,7 @@ fetch(locationURLWeather) // fetches data from API
     var weatherMinTemp = document.createElement('p')
     var weatherIcon = document.createElement('img')
     
-    weatherDate.textContent = moment().format('dddd, MMMM Do')
+    weatherDate.textContent = moment().format("dddd, MMMM Do")
     weatherDate.classList.add("weather-date")
 
     weatherCurrentTemp.textContent = "Current Temp: " + forecast.temp
@@ -127,11 +128,11 @@ fetch(locationURLWeather) // fetches data from API
     weatherMinTemp.textContent = "Low: " + forecast.temp_min + "° F"
     weatherMinTemp.classList.add("weather-min-temp");
 
-    //weatherIcon.setAttribute("src" , forecast[i].iconURL)
-    //weatherIcon.classList.add("weather-icon");
+    weatherIcon.setAttribute("src" , icon)
+    weatherIcon.classList.add("weather-icon");
 
     weatheryContainer.append(weatherDate, weatherCurrentTemp, weatherHumidity, weatherMaxTemp, weatherMinTemp)
-   // weatheryContainer.append(weatherIcon)
+   weatheryContainer.append(weatherIcon)
 
   
 })
