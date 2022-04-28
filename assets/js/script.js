@@ -106,38 +106,33 @@ fetch(locationURLWeather) // fetches data from API
 .then(function (data){
   var forecast = data.main
   console.log(data)
-  for (var i = 0; i < forecast.length; i++){ // displays data on the page
-    var weatherDay = document.createElement('p')
-    var weatherComment = document.createElement('p')
+    var weatherDate = document.createElement('p')
+    var weatherCurrentTemp = document.createElement('p')
+    var weatherHumidity = document.createElement('p')
     var weatherMaxTemp = document.createElement('p')
     var weatherMinTemp = document.createElement('p')
     var weatherIcon = document.createElement('img')
-    var hightemp = document.createElement('p')
-    var lowtemp = document.createElement('p')
+    
+    weatherDate.textContent = "(Today's Date Here)"
 
-    weatherDay.textContent = "Current Temp: " + forecast[i].temp
-   // weatherDay.classList.add("weather-day");
-    weatherDay.textContent = forecast[i].humidity
-    //weatherComment.classList.add("weather-comment");
+    weatherCurrentTemp.textContent = "Current Temp: " + forecast.temp
+    weatherCurrentTemp.classList.add("weather-current-temp");
+    weatherHumidity.textContent = "Humidity: " + forecast.humidity
+    weatherHumidity.classList.add("weather-humidity");
 
-    weatherMaxTemp.textContent = forecast[i].temp_max
-    hightemp.textContent = "High: " + weatherMaxTemp.textContent + "° F";
-    //hightemp.classList.add("weather-max-temp");
+    weatherMaxTemp.textContent =  "High: " + forecast.temp_max + "° F"
+    weatherMaxTemp.classList.add("weather-max-temp");
 
-    weatherMinTemp.textContent = forecast[i].temp_min
-    lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
-    //lowtemp.classList.add("weather-min-temp");
+    weatherMinTemp.textContent = "Low: " + forecast.temp_min + "° F"
+    weatherMinTemp.classList.add("weather-min-temp");
 
     //weatherIcon.setAttribute("src" , forecast[i].iconURL)
     //weatherIcon.classList.add("weather-icon");
 
-    weatheryContainer.append(weatherDay)
-    //weatheryContainer.append(weatherComment)
-    weatheryContainer.append(hightemp)
-    weatheryContainer.append(lowtemp)
+    weatheryContainer.append(weatherDate, weatherCurrentTemp, weatherHumidity, weatherMaxTemp, weatherMinTemp)
    // weatheryContainer.append(weatherIcon)
 
-  }
+  
 })
 };
 
