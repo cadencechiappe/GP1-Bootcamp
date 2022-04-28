@@ -1,23 +1,21 @@
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 //setting global variables and grabbing HTML elements
 var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
 var weatheryContainer = document.getElementById('weatherContainer')
-var breweryURL = "https://api.openbrewerydb.org/breweries?"
-var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
-var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
+var span = document.getElementsByClassName("close")[0]; // Get the <span> element that closes the modal
+var btn = document.getElementById("myBtn"); // Get the button that opens the modal
+var modal = document.getElementById("myModal"); // Get the modal
+
+//URLs for side server APIs
+var breweryURL = "https://api.openbrewerydb.org/breweries?"
+var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
+
+//input characters that are invalid
+var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 // on page load retrieve the location from local storage
 // and do something with that location
@@ -56,7 +54,7 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
   }
   else { // checks if input is a city
    var cityParam = breweryURL.concat("by_city=");
-   var locationURL = cityParam.concat(locationInput);  
+   var locationURL = cityParam.concat(locationInput);   
   }
   fetch(locationURL) // fetches data from API
   .then(function (response){
@@ -168,16 +166,3 @@ window.onclick = function(event) {
       modal.style.display = "none";
   }
 }
-
-
-
-// const fetchWithCache = async (Weather, time)=>{
-//  const now = new Date().getTime()
-//  if(!cache[cityName]  || cache[cityName].cacheTimer < now){ 
-//    cache[cityName] = fetchWeatherInfo(cityName, zipcode)
-//    cache[cityName].cacheTimer = getCacheTimer(time)
- 
-//   }
-
-//  return cache[cityName]
-//  }
