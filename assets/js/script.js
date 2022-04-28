@@ -50,16 +50,13 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
   instructions.style.display = "none"
   modal.style.display = "none"
   var locationInput = document.getElementById('location-picker').value
-  console.log(typeof locationInput)
   if (!isNaN(locationInput)) { // checks if input is a postal code
   var postalCodeParam = breweryURL.concat("by_postal=");
   var locationURL =postalCodeParam.concat(locationInput);
-  console.log(locationURL);
   }
   else { // checks if input is a city
    var cityParam = breweryURL.concat("by_city=");
-   var locationURL = cityParam.concat(locationInput); 
-   console.log(locationURL); 
+   var locationURL = cityParam.concat(locationInput);  
   }
   fetch(locationURL) // fetches data from API
   .then(function (response){
@@ -105,13 +102,11 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
 function fetchWeatherData () { //retrieves user input and attaches it to url as a query string
   var locationInputWeather = document.getElementById('location-picker').value
   var locationURLWeather = weatherURL.concat(locationInputWeather)
-  console.log(locationURLWeather)
   window.localStorage.setItem('location', locationInputWeather)
 fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
   var nextDays = data.next_days
-  console.log(data)
   for (var i = 0; i < nextDays.length; i++){ // displays data on the page
     var weatherDay = document.createElement('p')
     var weatherComment = document.createElement('p')
