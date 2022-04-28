@@ -193,7 +193,7 @@ main {
 }
 
 .front-page-img {
-  display: flex;
+  display: fixed;
   width: 100%;
   object-fit: cover;
   height: 400px;
@@ -228,6 +228,15 @@ ul {
   to {
     top: 0;
     opacity: 1
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .submit-btn {
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    left: -50px;
   }
 }
 
@@ -288,5 +297,12 @@ ul {
 
   .modal-content p {
     margin-top: 0px;
+  }
+
+  .submit-btn {
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    left: -50px;
   }
 }
