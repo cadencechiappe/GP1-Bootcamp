@@ -56,7 +56,7 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
   }
   else { // checks if input is a city
    var cityParam = breweryURL.concat("by_city=");
-   var locationURL = cityParam.concat(locationInput);  
+   var locationURL = cityParam.concat(locationInput);   
   }
   fetch(locationURL) // fetches data from API
   .then(function (response){
@@ -168,16 +168,3 @@ window.onclick = function(event) {
       modal.style.display = "none";
   }
 }
-
-
-
-// const fetchWithCache = async (Weather, time)=>{
-//  const now = new Date().getTime()
-//  if(!cache[cityName]  || cache[cityName].cacheTimer < now){ 
-//    cache[cityName] = fetchWeatherInfo(cityName, zipcode)
-//    cache[cityName].cacheTimer = getCacheTimer(time)
- 
-//   }
-
-//  return cache[cityName]
-//  }
