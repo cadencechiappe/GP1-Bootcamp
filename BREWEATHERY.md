@@ -33,3 +33,4 @@ The following image shows the webpage when the modal appears:
 The following image shows the webpage when the information is propogated:
 
 ![Main UI on load of the BREWeathery website.](./assets/images/Screen%20Shot%202022-04-27%20at%204.16.58%20PM.png)
+
