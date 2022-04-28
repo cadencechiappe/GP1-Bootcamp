@@ -136,7 +136,6 @@ fetch(locationURLWeather) // fetches data from API
     weatheryContainer.append(weatherDate, weatherCurrentTemp, weatherHumidity, weatherMaxTemp, weatherMinTemp)
    weatheryContainer.append(weatherIcon)
 
-  
 })
 };
 
