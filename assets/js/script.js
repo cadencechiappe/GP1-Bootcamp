@@ -1,23 +1,21 @@
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 //setting global variables and grabbing HTML elements
 var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
 var weatheryContainer = document.getElementById('weatherContainer')
-var breweryURL = "https://api.openbrewerydb.org/breweries?"
-var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
-var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
+var span = document.getElementsByClassName("close")[0]; // Get the <span> element that closes the modal
+var btn = document.getElementById("myBtn"); // Get the button that opens the modal
+var modal = document.getElementById("myModal"); // Get the modal
+
+//URLs for side server APIs
+var breweryURL = "https://api.openbrewerydb.org/breweries?"
+var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
+
+//input characters that are invalid
+var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 // on page load retrieve the location from local storage
 // and do something with that location
