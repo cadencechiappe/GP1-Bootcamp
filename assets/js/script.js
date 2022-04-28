@@ -128,13 +128,14 @@ fetch(locationURLWeather) // fetches data from API
     weatherMinTemp.textContent = "Low: " + forecast.temp_min + "° F"
     weatherMinTemp.classList.add("weather-min-temp");
 
-    weatherIcon.setAttribute("src" , icon)
+    var iconURL = "https://openweathermap.org/img/wn/"
+    iconimport = iconURL.concat(icon)
+    weatherIcon.setAttribute("src" , iconimport+".png")
     weatherIcon.classList.add("weather-icon");
 
     weatheryContainer.append(weatherDate, weatherCurrentTemp, weatherHumidity, weatherMaxTemp, weatherMinTemp)
    weatheryContainer.append(weatherIcon)
 
-  
 })
 };
 
