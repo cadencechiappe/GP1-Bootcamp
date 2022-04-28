@@ -23,8 +23,9 @@ var newLocationBtn = document.getElementById("newLocationBtn")
 // and do something with that location
 // if there is something in localstorage then call the functions for breweries and weather
 localStorage.getItem ('location-picker')
+document.getElementById("location-picker").placeholder = "Ex: Austin or 78702";
 
-// checks to see if input is bad before executing other functions
+// checks to see if input is bad before executing other function
 function checkInvalidInput () {
   btn.style.display = "none"
   instructions.style.display = "none"

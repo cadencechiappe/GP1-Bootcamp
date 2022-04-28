@@ -1,5 +1,13 @@
 # Group Project 1: BREWeathery
 
+## Technologies Used
+
+```
+HTML
+CSS
+JavaScript
+```
+
 ## User Story
 
 ```
