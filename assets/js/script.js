@@ -113,7 +113,8 @@ fetch(locationURLWeather) // fetches data from API
     var weatherMinTemp = document.createElement('p')
     var weatherIcon = document.createElement('img')
     
-    weatherDate.textContent = "(Today's Date Here)"
+    weatherDate.textContent = moment().format('dddd, MMMM Do')
+    weatherDate.classList.add("weather-date")
 
     weatherCurrentTemp.textContent = "Current Temp: " + forecast.temp
     weatherCurrentTemp.classList.add("weather-current-temp");
