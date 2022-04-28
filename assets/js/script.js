@@ -19,6 +19,8 @@ var locationInput = document.getElementById('location-picker').value
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
 
+document.getElementById("location-picker").placeholder = "Ex: Austin or 78702";
+
 // checks to see if input is bad before executing other functions
 function checkInvalidInput () {
   btn.style.display = "none"
