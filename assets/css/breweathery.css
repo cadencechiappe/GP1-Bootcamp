@@ -1,33 +1,78 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+:root {
+  --darkgrey: rgb(44, 44, 48);
+  --lightteal: rgb(94, 139, 153);
+  --lightestteal: rgb(155, 196, 209);
+  --darkteal: rgb(67, 100, 109);
+  --lightgrey: rgb(86, 93, 99);
+}
+
 h1 {
   font-size: 60px;
 }
 
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: black;
+h2 {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  background-color: var(--darkteal);
 }
 
-.modal-body {
-  padding: 2px 16px;
-}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: black;
+/* styling for modal */
+.modal {
+  display: flex;
+  margin: 20px;
+  padding: 20px;
 }
 
 .modal-content {
+  font-size: 20px;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
   position: relative;
-  background-color: black;
+  background-color: var(--darkgrey);
   margin: auto;
   padding: 0;
-  border: 1px solid white;
+  border: 5px var(--lightgrey);
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
+}
+
+.location-p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-container {
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* styling for modal submit button */
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--lightteal);
+  margin: 10px;
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+.submit-btn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
 }
 
 /* hides modal on page launch */
@@ -41,6 +86,137 @@ h1 {
   width: 100%;
   text-align: right;
   font-size: 25px;
+  left: -15px;
+  top: 10px;
+}
+
+/* styling for header */
+header {
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.athe {
+  color: var(--lightteal);
+}
+
+/* styling for get started button */
+#myBtn {
+  float: right;
+  text-align: center;
+  background-color: var(--lightteal);
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+#myBtn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
+}
+
+/* styling for new location button */
+#newLocationBtn {
+  float: right;
+  text-align: center;
+  background-color: var(--lightteal);
+  padding: 10px;
+  color: var(--darkgrey);
+}
+
+#newLocationBtn:hover {
+  background-color: var(--lightestteal);
+  color: var(--lightgrey);
+}
+
+/* generic styling for main body */
+body {
+  background-color: var(--darkgrey);
+  color: var(--lightestteal);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* styling for instructions that will be replaced by dynamic brewery HTML */
+#instructions {
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* general styling for dynamic brewery HTML container */
+#brewContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 250%;
+  width: 250px;
+  position: absolute;
+  background-color: rgb(94, 139, 153);
+  overflow-x: hidden;
+  padding-top: 20px;
+  line-height: 1.5;
+}
+
+/* The navigation menu links */
+.sidenav p {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--darkgrey);
+  display: block;
+}
+
+.weather-day {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weather-box {
+  color: var(--darkgrey);
+  font-size: 16px;
+}
+
+/* styling for weather icon */
+.weather-icon {
+  position: relative;
+  left: 150px;
+  top: -60px;
+}
+
+/* Styling for page content */
+main {
+  margin-left: 250px;
+}
+
+.front-page-img {
+  display: flex;
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+
+/* Styling for dynamic brewery HTML */
+ul {
+  list-style: none;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.breweryName {
+  color: var(--lightestteal);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.breweryStreet , .breweryPhone , .breweryWebsite {
+  color: var(--lightteal);
+  font-size: 18px;
+  margin-left: 15px;
+  font-weight: normal;
 }
 
 @keyframes animatetop {
@@ -55,50 +231,62 @@ h1 {
   }
 }
 
-body {
-  background-color: black;
-  color: white;
-}
-
-/* The sidebar menu */
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  display: block;
-}
-
-/* Style page content */
-main {
-  margin-left: 200px;
-  padding: 0px 10px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+/* On smaller screens, where height is less than 450px, change the style of the sidebar to a semi jumbotron and alter main body to below */
+@media screen and (max-width: 450px) {
   .sidenav {
+    position: relative;
+    top: 150px;
     padding-top: 15px;
-    width: 100px;
+    width: 100%;
+    height: 400px;
+    display: block;
   }
 
-  .sidenav a {
-    font-size: 18px;
+  .sidenav p {
+    font-size: 12px;
   }
 
   main {
-    margin-left: 100px;
+    margin-left: 0px;
+  }
+
+  .breweryName {
+    position: relative;
+    top: 130px;
+  }
+
+  .header-cont {
+    width: 100%;
+    height: 100px;
+  }
+
+  #myBtn {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+  }
+
+  #newLocationBtn {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+  }
+
+  .front-page-img {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .modal {
+    position: fixed;
+    top: 150px;
+    z-index: 1;
+  }
+
+  .modal-content p {
+    margin-top: 0px;
   }
 }
-

@@ -4,51 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beathery</title>
+  <title>BREWeathery</title>
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/breweathery.css" />
-  <script> src = "script.js" </script>
   <!-- jQuery and jQuery UI library -->
 <link rel="stylesheet" type="text/css" media="all" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
-<header>
-  <h1 class="TitleBreweather">BREWeathery</h1>
+<header class="header-cont">
+  <h1 class="TitleBreweather">BREWe<span class="athe">athe</span>ry</h1>
+  <button id="myBtn">Get Started</button>
+  <button class="hide" id="newLocationBtn">New Location</button>
 </header>
 
-<button id="myBtn">Let's get started!</button>
+<body>
+  <div class="sidenav">
+    <h2>Weather</h2>
+    <div class="weather-box" id="weatherContainer">
 
-<div class="sidenav">
-  <a>SideBar goes here</a>
-  <a>Day 1</a>
-  <a>Day 2</a>
-  <a>Day 3</a>
-  <a>Day 4</a>
-  <a>Day 5</a>
-  <a>Day 6</a>
-  <a>Day 7</a>
-</div>
-
-<div id="myModal" class="modal">
-
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Choose a date:<input type="text" id="datepicker"></p>
-    <br></br>
-    <p>Enter a location (Zip OR City, State):<input type="text" id="location-picker"></p>
-    <br></br>
-    <button class="submit-btn">Submit</button>
+    </div>
   </div>
-
-</div>
-
-<main>
-  <h2>
-    Where the information about breweries would go here
-  </h2>
-</main>
+  
+  <div id="myModal" class="modal">
+  
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p class="location-p">Enter a location (Zip OR City): <input type="text" id="location-picker"></p>
+      <div class="btn-container">
+        <button onclick="checkInvalidInput()" class="submit-btn">Submit</button>
+      </div>
+    </div>
+  
+  </div>
+  
+  <main>
+    <div class="jumbotron">
+      <img src="./assets/images/istockphoto-1040303026-612x612.jpg" class="front-page-img" alt="Image of Drinks on Bar"/>
+    </div>
+    <div id="brewContainer">
+      <span id="instructions">Press the Get Started button to look for your weather and breweries.</span>
+    </div>
+  </main>
+</body>
 
 <script src="./assets/js/script.js"></script>
 
