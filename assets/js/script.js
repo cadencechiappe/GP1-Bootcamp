@@ -13,11 +13,12 @@ var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
 var weatheryContainer = document.getElementById('weatherContainer')
 var breweryURL = "https://api.openbrewerydb.org/breweries?"
-var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q="
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var newLocationBtn = document.getElementById("newLocationBtn")
+var apiKey = "126e4065d97fedad97742cdb5c363ca9"
 
 // checks to see if input is bad before executing other functions
 function checkInvalidInput () {
@@ -97,15 +98,15 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
 
 // weather API function
 function fetchWeatherData () { //retrieves user input and attaches it to url as a query string
-  var locationInputWeather = document.getElementById('location-picker').value
-  var locationURLWeather = weatherURL.concat(locationInputWeather)
+  var locationInputWeather = document.getElementById('location-picker').value 
+  var locationURLWeather = weatherURL.concat(locationInputWeather) + "&Appid=" + apiKey + "&units=imperial"
   console.log(locationURLWeather)
 fetch(locationURLWeather) // fetches data from API
 .then(res => res.json())
 .then(function (data){
-  var nextDays = data.next_days
+  var forecast = data.main
   console.log(data)
-  for (var i = 0; i < nextDays.length; i++){ // displays data on the page
+  for (var i = 0; i < forecast.length; i++){ // displays data on the page
     var weatherDay = document.createElement('p')
     var weatherComment = document.createElement('p')
     var weatherMaxTemp = document.createElement('p')
@@ -114,27 +115,27 @@ fetch(locationURLWeather) // fetches data from API
     var hightemp = document.createElement('p')
     var lowtemp = document.createElement('p')
 
-    weatherDay.textContent = nextDays[i].day
-    weatherDay.classList.add("weather-day");
-    weatherComment.textContent = nextDays[i].comment
-    weatherComment.classList.add("weather-comment");
+    weatherDay.textContent = "Current Temp: " + forecast[i].temp
+   // weatherDay.classList.add("weather-day");
+    weatherDay.textContent = forecast[i].humidity
+    //weatherComment.classList.add("weather-comment");
 
-    weatherMaxTemp.textContent = nextDays[i].max_temp.f
+    weatherMaxTemp.textContent = forecast[i].temp_max
     hightemp.textContent = "High: " + weatherMaxTemp.textContent + "° F";
-    hightemp.classList.add("weather-max-temp");
+    //hightemp.classList.add("weather-max-temp");
 
-    weatherMinTemp.textContent = nextDays[i].min_temp.f
+    weatherMinTemp.textContent = forecast[i].temp_min
     lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
-    lowtemp.classList.add("weather-min-temp");
+    //lowtemp.classList.add("weather-min-temp");
 
-    weatherIcon.setAttribute("src" , nextDays[i].iconURL)
-    weatherIcon.classList.add("weather-icon");
+    //weatherIcon.setAttribute("src" , forecast[i].iconURL)
+    //weatherIcon.classList.add("weather-icon");
 
     weatheryContainer.append(weatherDay)
-    weatheryContainer.append(weatherComment)
+    //weatheryContainer.append(weatherComment)
     weatheryContainer.append(hightemp)
     weatheryContainer.append(lowtemp)
-    weatheryContainer.append(weatherIcon)
+   // weatheryContainer.append(weatherIcon)
 
   }
 })
