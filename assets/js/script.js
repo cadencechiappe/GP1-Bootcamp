@@ -109,8 +109,6 @@ fetch(locationURLWeather) // fetches data from API
     var weatherMaxTemp = document.createElement('p')
     var weatherMinTemp = document.createElement('p')
     var weatherIcon = document.createElement('img')
-    var hightemp = document.createElement('p')
-    var lowtemp = document.createElement('p')
 
     weatherDay.textContent = nextDays[i].day
     weatherDay.classList.add("weather-day");
@@ -131,6 +129,7 @@ fetch(locationURLWeather) // fetches data from API
 })
 };
 
+// refreshes page when user tries to enter a new location  
 newLocationBtn.onclick=function(){
   window.location.reload()
 }
