@@ -2,7 +2,7 @@
 var instructions = document.getElementById("instructions")
 var breweryContainer = document.getElementById('brewContainer')
 var breweryInfo = document.getElementById('brewInfo')
-var weatheryContainer = document.getElementById('weatherContainer')
+var weatheryContainer = document.getElementById('weatherContainer') 
 var submitBtn = document.getElementById("submit-btn");
 var locationInput = document.getElementById('location-picker').value
 var newLocationBtn = document.getElementById("newLocationBtn")
@@ -17,13 +17,11 @@ var weatherURL = "https://weatherdbi.herokuapp.com/data/weather/"
 //input characters that are invalid
 var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
-// on page load retrieve the location from local storage
-// and do something with that location
-// if there is something in localstorage then call the functions for breweries and weather
+// retrieves the location from local storage on page load
 localStorage.getItem ('location-picker')
 document.getElementById("location-picker").placeholder = "Ex: Austin or 78702";
 
-// checks to see if input is bad before executing other function
+// checks to see if input is bad before executing other functions
 function checkInvalidInput () {
   btn.style.display = "none"
   instructions.style.display = "none"
@@ -86,7 +84,7 @@ function fetchBreweryData () { //retrieves user input and attaches it to url as 
     breweryName.append(breweryDataUL)
     breweryDataUL.append(breweryStreet, breweryPhone, breweryWebsite)
   }
-  ; if (data.length === 0) { // checks to see if there are no breweries in the given area
+  ; if (data.length === 0) { // checks if there are no breweries in the given area
     var noBrewery = document.createElement('p')
     var sadFace = '\u{1F622}'
     noBrewery.textContent = "There are no breweries in this area! " + sadFace + " Please enter another location."
@@ -119,23 +117,16 @@ fetch(locationURLWeather) // fetches data from API
     weatherComment.textContent = nextDays[i].comment
     weatherComment.classList.add("weather-comment");
 
-    weatherMaxTemp.textContent = nextDays[i].max_temp.f
-    hightemp.textContent = "High: " + weatherMaxTemp.textContent + "° F";
-    hightemp.classList.add("weather-max-temp");
+    weatherMaxTemp.textContent = "High: " + nextDays[i].max_temp.f + "° F";
+    weatherMaxTemp.classList.add("weather-max-temp");
 
-    weatherMinTemp.textContent = nextDays[i].min_temp.f
-    lowtemp.textContent = "Low: " + weatherMinTemp.textContent + "° F";
-    lowtemp.classList.add("weather-min-temp");
+    weatherMinTemp.textContent = "Low: " + nextDays[i].min_temp.f + "° F";
+    weatherMinTemp.classList.add("weather-min-temp");
 
     weatherIcon.setAttribute("src" , nextDays[i].iconURL)
     weatherIcon.classList.add("weather-icon");
 
-    weatheryContainer.append(weatherDay)
-    weatheryContainer.append(weatherComment)
-    weatheryContainer.append(hightemp)
-    weatheryContainer.append(lowtemp)
-    weatheryContainer.append(weatherIcon)
-
+    weatheryContainer.append(weatherDay, weatherComment, weatherMaxTemp, weatherMinTemp, weatherIcon)
   }
 })
 };
